@@ -1,12 +1,20 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 require('dotenv').config();
 const {Sequelize, Op} = require('sequelize');
 const fs = require('fs');
 const path = require('path');
-const {DB_USER, DB_PASSWORD, DB_HOST} = process.env;
+const {DB_USER, DB_PASSWORD, DB_HOST, DB_DEPLOY} = process.env;
 
+// const sequelize = new Sequelize(
+//     `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
+//     {
+//       logging: false,
+//       native: false,
+//     },
+// );
 const sequelize = new Sequelize(
-    `postgres://${DB_USER}:${DB_PASSWORD}@${DB_HOST}/videogames`,
+    DB_DEPLOY,
     {
       logging: false,
       native: false,
