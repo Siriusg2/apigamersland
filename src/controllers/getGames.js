@@ -10,7 +10,7 @@ const getGames = async (page = 1) => {
 
     let totalApi = [];
     let pagenumber = 1;
-    while (pagenumber < 6) {
+    while (pagenumber < 8) {
       const responseApi = await axios.get(
           `https://api.rawg.io/api/games?key=${API_KEY}&page=${pagenumber}`,
       );
@@ -23,7 +23,7 @@ const getGames = async (page = 1) => {
             rating,
           }) => ({
             id,
-            name: name.toUpperCase(),
+            name: name,
             background_image,
             genres: genres.map((genres) => genres.name),
             rating: parseInt(rating),
