@@ -62,7 +62,7 @@ const getGamesbyName = async (word) => {
 
     return responseToClient.length ?
       responseToClient :
-      'No hay juegos que contengan la palabra ingresada!';
+      ' Oops! There are no games that match your search Try again!';
   } catch (error) {
     return error.message;
   }

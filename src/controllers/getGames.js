@@ -16,8 +16,7 @@ const getGames = async (page = 1) => {
       axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=3`),
       axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=4`),
       axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=5`),
-      axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=6`),
-      axios.get(`https://api.rawg.io/api/games?key=${API_KEY}&page=7`),
+
     ];
 
 
