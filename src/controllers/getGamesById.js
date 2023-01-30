@@ -43,7 +43,7 @@ const getGamesById = async (arg) => {
         responseDb.dataValues.genres = genresId;
         return responseDb;
       }
-      return 'No existe un juego asociado al Id proporcionado';
+      return 'Game not found';
     } catch (error) {
       return error.message;
     }

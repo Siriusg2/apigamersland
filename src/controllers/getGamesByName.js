@@ -47,17 +47,6 @@ const getGamesbyName = async (word) => {
     );
 
     const responseToClient = [...videogamesWithGenres, ...gamesApi]
-        .sort((a, b) => {
-          const nameA = a.name.toLowerCase();
-          const nameB = b.name.toLowerCase();
-          const matchA = nameA.includes(word);
-          const matchB = nameB.includes(word);
-          if (matchA !== matchB) {
-            return matchB - matchA;
-          } else {
-            return nameA > nameB ? 1 : -1;
-          }
-        })
         .slice(0, 15);
 
     return responseToClient.length ?
