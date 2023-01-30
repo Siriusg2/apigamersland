@@ -6,6 +6,12 @@ const {Videogame, conn} = require('../../src/db.js');
 const agent = session(app);
 const videogame = {
   name: 'Super Mario Bros',
+  description: 'platformer de los 90',
+  background_image: 'http://prueba.com',
+  launch_date: '2023-01-30',
+  rating: 5,
+  platforms: ['android'],
+
 };
 
 describe('Videogame routes', () => {

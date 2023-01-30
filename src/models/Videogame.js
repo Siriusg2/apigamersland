@@ -52,10 +52,13 @@ module.exports = (sequelize) => {
         },
         platforms: {
           type: DataTypes.ARRAY(DataTypes.STRING),
-          allowNull: false, validate: {
-            isArray: true,
+          allowNull: false,
+          validate: {
             len: [1],
             isStringArray: (value) => {
+              if (!Array.isArray(value)) {
+                throw new Error(`Value is not an array`);
+              }
               for (let i = 0; i < value.length; i++) {
                 if (typeof value[i] !== 'string') {
                   throw new Error(`Element at index ${i} is not a string`);
