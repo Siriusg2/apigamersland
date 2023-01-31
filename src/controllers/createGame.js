@@ -43,7 +43,7 @@ const createGame = async (
     const gameGenres = await findGamebyPk.getGenres();
 
     const responseToClient = {...findGamebyPk.dataValues};
-    responseToClient.genres = gameGenres.map((genre) => genre.id);
+    responseToClient.genres = gameGenres.map((genre) => genre.name);
     return responseToClient;
   } catch (error) {
     return error.message;
