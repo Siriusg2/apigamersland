@@ -9,7 +9,7 @@ const getGamesbyName = async (word) => {
     let responseDb = await Videogame.findAll({
       where: {
         name: {
-          [Op.iLike]: `%${word}%`,
+          [Op.like]: `%${word}%`,
         },
       },
     });
