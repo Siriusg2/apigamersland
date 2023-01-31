@@ -19,7 +19,7 @@ const updateGame = async (id, game) => {
       return 'You must set at least one genre for this game';
     }
 
-    if (responseDb) {
+    if (responseDb.id) {
       await Videogame.update({name: game.name, description: game.description,
         launch_date: game.launch_date,
         rating: game.rating, platforms: game.platforms}, {
@@ -36,7 +36,12 @@ const updateGame = async (id, game) => {
           genreId: element,
         });
       });
-      return true;
+
+      const findGamebyPk = await Videogame.findByPk(id);
+      const gameGenres = await findGamebyPk.getGenres();
+      const responseToClient = {...findGamebyPk.dataValues};
+      responseToClient.genres = gameGenres.map((genre) => genre.name);
+      return responseToClient;
     } else {
       return false;
     }
