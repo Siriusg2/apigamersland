@@ -71,12 +71,4 @@ module.exports = (sequelize) => {
       },
       {timestamps: false},
   );
-  sequelize.models.videogame.associate = (models) => {
-    sequelize.models.videogame.belongsToMany(models.Genre, {
-      through: 'videogame_genres',
-
-      as: 'genres',
-      foreignKey: 'videogameId',
-    });
-  };
 };

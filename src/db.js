@@ -51,13 +51,13 @@ const {Videogame, Genre} = sequelize.models;
 // Aca vendrian las relaciones
 Videogame.belongsToMany(Genre, {
   through: 'videogame_genres',
-  timestamps: false,
-});
+
+}, {timestamps: false});
 
 Genre.belongsToMany(Videogame, {
   through: 'videogame_genres',
-  timestamps: false,
-});
+
+}, {timestamps: false});
 
 module.exports = {
   ...sequelize.models,
