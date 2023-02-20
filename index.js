@@ -20,10 +20,11 @@
 const server = require('./src/app.js');
 const {conn} = require('./src/db.js');
 const PORT = process.env.PORT ||3001;
-
+const genresSeeder = require('.//src/seeders/seeder-genres.js');
 // Syncing all the models at once.
-conn.sync({alter: true}).then(() => {
+conn.sync({force: true}).then(() => {
   server.listen(PORT, () => {
     console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
+    return genresSeeder();
   });
 });
