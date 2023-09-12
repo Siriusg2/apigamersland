@@ -1,0 +1,40 @@
+name: gamersland_backend
+services:
+  db:
+    container_name: gamersland_db
+    image: postgres:latest
+    environment:
+      - POSTGRES_DB=videogames
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=123456
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./data/db:/var/lib/postgresql/data
+    networks:
+      - gamersland 
+  api:
+    restart: always
+    container_name: gamersland_api
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - DB_USER=postgres
+      - DB_PASSWORD=123456
+      - DB_HOST=db:5432
+      - API_KEY=f851a63493f54d538e27c1c9a937256c
+      - PORT=3000
+      - DB_LOCAL=postgres://postgres:123456@db:5432/videogames
+    ports:
+      - "3000:3000"
+    networks:
+      - gamersland 
+
+networks: 
+  gamersland:
+    driver: bridge
+    external: true
+    
