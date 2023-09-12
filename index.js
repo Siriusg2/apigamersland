@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 //                       _oo0oo_
 //                      o8888888o
 //                      88" . "88
@@ -19,12 +20,12 @@
 //     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 const server = require('./src/app.js');
 const {conn} = require('./src/db.js');
-const PORT = process.env.PORT ||3001;
+const {PORT} = process.env;
 const genresSeeder = require('.//src/seeders/seeder-genres.js');
 // Syncing all the models at once.
 conn.sync({force: true}).then(() => {
   server.listen(PORT, () => {
-    console.log(`%s listening at ${PORT}`); // eslint-disable-line no-console
+    console.log(`Server is listening at ${PORT}`); // eslint-disable-line no-console
     return genresSeeder();
   });
 });
