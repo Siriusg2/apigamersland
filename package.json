@@ -35,8 +35,8 @@
   "main": "index.js",
   "name": "api",
   "scripts": {
-    "dev": "node index.js",
-    "start": "bun index.js",
+    "dev": "node --watch index.js",
+    "start": "node index.js",
     "test": "mocha -w ./tests/**/*.spec.js"
   },
   "version": "1.0.0"

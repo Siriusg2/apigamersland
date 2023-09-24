@@ -10,7 +10,8 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - ./data/db:/var/lib/postgresql/data
+      - gamersland-vol:/var/lib/postgresql/data
+
     networks:
       - gamersland 
   api:
@@ -37,4 +38,8 @@ networks:
   gamersland:
     driver: bridge
     external: true
+volumes:
+  gamersland-vol:
+    external: true
+ 
     

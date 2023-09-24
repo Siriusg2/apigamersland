@@ -1,7 +1,8 @@
-FROM oven/bun
+FROM node:latest
+RUN npm install -g pnpm
 WORKDIR /app
 COPY package*.json ./
-RUN bun i
+RUN pnpm i
 COPY . .
 EXPOSE 3000
-CMD ["bun", "run", "dev"]
+CMD ["pnpm", "run", "dev"]
