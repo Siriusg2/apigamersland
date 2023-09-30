@@ -1,4 +1,4 @@
-name: gamersland_backend
+name: gamersland
 services:
   db:
     container_name: gamersland_db
