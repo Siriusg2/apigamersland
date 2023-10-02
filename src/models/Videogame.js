@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
 /* eslint-disable new-cap */
 const {DataTypes} = require('sequelize');
-const {v4: uuidv4} = require('uuid-random');
+const { v4: uuidv4 } = require('uuid');
 
 // Exportamos una funcion que define el modelo
 // Luego le injectamos la conexion a sequelize.
