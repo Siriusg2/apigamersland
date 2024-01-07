@@ -9,12 +9,6 @@ const { DB_DEPLOY, DB_LOCAL } = process.env;
 const sequelize = new Sequelize(DB_LOCAL || DB_DEPLOY, {
   logging: false,
   native: false,
-  dialectOptions: {
-    ssl: {
-      require: false,
-      rejectUnauthorized: false,
-    },
-  },
 });
 const basename = path.basename(__filename);
 
