@@ -4,8 +4,10 @@ services:
     restart: always
     container_name: gamersland_db
     image: postgres:latest
-    env_file:
-      - ./.env
+    environment:
+      - POSTGRES_DB=gamersland
+      - POSTGRES_USER=postgres
+        -POSTGRES_PASSWORD=123456
     ports:
       - "5432:5432"
     volumes:
