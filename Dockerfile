@@ -1,4 +1,4 @@
-FROM node:13.13
+FROM node:14.17.0-alpine
 RUN npm i -g pnpm
 
 WORKDIR /app
