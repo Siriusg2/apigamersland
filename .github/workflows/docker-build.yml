@@ -20,4 +20,4 @@ jobs:
           username: ${{ secrets.REMOTE_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            cd ../home/repos/apigamersland && git reset --hard origin/master && git pull && docker compose down --rmi local -v && docker compose  up --build -d
+            cd ./apigamersland && git reset --hard origin/master && git pull && docker compose down --rmi local -v && docker compose  up --build -d
