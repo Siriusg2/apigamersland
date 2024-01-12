@@ -46,6 +46,7 @@ const createGame = async (
     responseToClient.genres = gameGenres.map((genre) => genre.name);
     return responseToClient;
   } catch (error) {
+    console.log(error.message);
     return error.message;
   }
 };
